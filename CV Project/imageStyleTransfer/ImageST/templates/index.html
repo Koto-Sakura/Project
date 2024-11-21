@@ -1,0 +1,21 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Image Style Transfer</title>
+        <link rel="stylesheet" type="text/css" href="../static/css/index.css">
+    </head>
+    <body>
+        <h1>Image Style Transfer</h1>
+        <form method="post" enctype="multipart/form-data">
+            <label for="content">Content Image:</label>
+            <input type="file" name="content" id="content"><br><br>
+            <label for="style">Style Image:</label>
+            <input type="file" name="style" id="style"><br><br>
+            <input type="submit" value="Submit">
+        </form>
+        <div>
+            <img src="../static/imgs/STexample.jpg" alt="Example">
+        </div>
+    </body>
+</html>
