@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>ResourceAllocator</class>
+ <widget class="QWidget" name="ResourceAllocator">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1036</width>
+    <height>752</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Resource Allocator</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <widget class="QLabel" name="labelAvailable">
+     <property name="text">
+      <string>可用资源:</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="availableInput"/>
+   </item>
+   <item>
+    <widget class="QLabel" name="labelMax">
+     <property name="text">
+      <string>最大需求:</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QFormLayout" name="formLayoutMax">
+     <item row="0" column="0">
+      <widget class="QLabel" name="labelMax0">
+       <property name="text">
+        <string>P0:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="maxInputs_0"/>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="labelMax1">
+       <property name="text">
+        <string>P1:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="maxInputs_1"/>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="labelMax2">
+       <property name="text">
+        <string>P2:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="maxInputs_2"/>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="labelMax3">
+       <property name="text">
+        <string>P3:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="maxInputs_3"/>
+     </item>
+     <item row="4" column="0">
+      <widget class="QLabel" name="labelMax4">
+       <property name="text">
+        <string>P4:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="1">
+      <widget class="QLineEdit" name="maxInputs_4"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QLabel" name="labelAllocation">
+     <property name="text">
+      <string>当前分配:</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <layout class="QFormLayout" name="formLayoutAllocation">
+     <item row="0" column="0">
+      <widget class="QLabel" name="labelAllocation0">
+       <property name="text">
+        <string>P0:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="allocationInputs_0"/>
+     </item>
+     <item row="2" column="0">
+      <widget class="QLabel" name="labelAllocation1">
+       <property name="text">
+        <string>P1:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QLineEdit" name="allocationInputs_1"/>
+     </item>
+     <item row="3" column="0">
+      <widget class="QLabel" name="labelAllocation2">
+       <property name="text">
+        <string>P2:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="1">
+      <widget class="QLineEdit" name="allocationInputs_2"/>
+     </item>
+     <item row="5" column="0">
+      <widget class="QLabel" name="labelAllocation3">
+       <property name="text">
+        <string>P3:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QLineEdit" name="allocationInputs_3"/>
+     </item>
+     <item row="6" column="0">
+      <widget class="QLabel" name="labelAllocation4">
+       <property name="text">
+        <string>P4:</string>
+       </property>
+      </widget>
+     </item>
+     <item row="6" column="1">
+      <widget class="QLineEdit" name="allocationInputs_4"/>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <widget class="QPushButton" name="calculateButton">
+     <property name="text">
+      <string>计算</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QTableWidget" name="resourceTable">
+     <property name="rowCount">
+      <number>5</number>
+     </property>
+     <property name="columnCount">
+      <number>13</number>
+     </property>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <row/>
+     <column>
+      <property name="text">
+       <string>进程</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>当前分配A</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>当前分配B</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>当前分配C</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>最大需求A</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>最大需求B</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>最大需求C</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>当前需求A</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>当前需求B</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>当前需求C</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>可用资源A</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>可用资源B</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>可用资源C</string>
+      </property>
+     </column>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLabel" name="resultLabel">
+     <property name="text">
+      <string>结果</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>calculateButton</sender>
+   <signal>clicked()</signal>
+   <receiver>ResourceAllocator</receiver>
+   <slot>handleCalculateButtonClicked()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>20</x>
+     <y>20</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>handleCalculateButtonClicked()</slot>
+ </slots>
+</ui>
