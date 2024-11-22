@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Style Transfer</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/transfer.css">
+</head>
+<body>
+    <div class="navbar">
+        <h1>ImageStyleTransfer</h1>
+    </div>
+    <div class="main-container">
+        <div class="left-section">
+            <input type="file" id="image-input" name="image-input" style="display: none;">
+            <div class="input-image-container">
+                <img src="" alt="Input Image" id="input-image" style="display: none;">
+                <span class="upload-icon">+</span> 
+            </div>
+        </div>
+        <div class="middle-section">
+            <div class="arrow">
+                <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M7 12L12 17L17 12" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </div>
+            <button class="start-button">begin</button>
+        </div>
+        <div class="right-section">
+            <div class="output-image-container">
+                <img src="" alt="Output Image" id="output-image" style="display: none;">
+            </div>
+            <button class="download-button">download</button>
+        </div>
+    </div>
+</body>
+</html>

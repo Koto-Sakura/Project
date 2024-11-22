@@ -4,5 +4,6 @@ from ImageST import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/', views.index, name='index'),
+    path('transfer/',views.tranfer, name='transfer'),
     path('',views.nothing, name='nothing')
 ]

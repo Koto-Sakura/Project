@@ -6,3 +6,5 @@ def index(request):
     return render(request, 'index.html')
 def nothing(request):
     return HttpResponse("Nothing to see here,you should go to /index")
+def tranfer(request):
+    return render(request, 'transfer.html')

@@ -6,16 +6,14 @@
         <link rel="stylesheet" type="text/css" href="../static/css/index.css">
     </head>
     <body>
-        <h1>Image Style Transfer</h1>
-        <form method="post" enctype="multipart/form-data">
-            <label for="content">Content Image:</label>
-            <input type="file" name="content" id="content"><br><br>
-            <label for="style">Style Image:</label>
-            <input type="file" name="style" id="style"><br><br>
-            <input type="submit" value="Submit">
-        </form>
-        <div>
-            <img src="../static/imgs/STexample.jpg" alt="Example">
+        <div class="navbar">
+            <h1>ImageStyleTransfer</h1>
+        </div>
+        <div class="container">
+            <img src="../static/imgs/background_img.jpg" alt="Background Image" class="background-img">
+            <form method="post" enctype="multipart/form-data" class="upload-form">
+                <input type="submit" value="Submit" class="upload-button">
+            </form>
         </div>
     </body>
 </html>

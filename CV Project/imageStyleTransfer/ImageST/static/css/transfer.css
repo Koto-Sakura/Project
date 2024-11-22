@@ -1,0 +1,85 @@
+body {
+    background-color: rgb(255, 255, 255);
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.navbar {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+}
+
+.navbar h1 {
+    margin: 0;
+}
+
+.main-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 60px; /* 留出导航栏的高度 */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.left-section, .middle-section, .right-section {
+    flex: 1;
+    text-align: center;
+}
+
+.left-section label, .left-section input {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.input-image-container, .output-image-container {
+    width: 200px; /* 正方形宽度 */
+    height: 200px; /* 正方形高度 */
+    border: 2px dashed #ccc; /* 边框样式 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative; /* 使+号相对于此容器定位 */
+}
+
+.input-image-container img, .output-image-container img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.middle-section .arrow {
+    margin-bottom: 20px;
+}
+
+.start-button, .download-button {
+    background-color: skyblue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+/* 新增样式：+号 */
+.upload-icon {
+    font-size: 2em;
+    color: #999;
+    cursor: pointer;
+}
