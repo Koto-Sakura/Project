@@ -3,6 +3,7 @@
 <head>
     <title>Image Style Transfer</title>
     <link rel="stylesheet" type="text/css" href="../static/css/transfer.css">
+    <meta name="csrf-token" content="{% csrf_token %}">
 </head>
 <body>
     <div class="navbar">
@@ -10,11 +11,15 @@
     </div>
     <div class="main-container">
         <div class="left-section">
-            <input type="file" id="image-input" name="image-input" style="display: none;">
-            <div class="input-image-container">
-                <img src="" alt="Input Image" id="input-image" style="display: none;">
-                <span class="upload-icon">+</span> 
-            </div>
+            <form id="upload-form" enctype="multipart/form-data" method="post" action="{% url 'save' %}">
+                {% csrf_token %}
+                <div class="input-image-container">
+                    <img src="{{ uploaded_file_url }}" alt="Input Image" id="input-image">
+                    <span class="upload-icon" onclick="document.getElementById('image-input').click()">+</span>
+                </div>
+                <input type="file" id="image-input" name="image-input" accept="image/jpeg, image/png, image/jpg" style="display: none;">
+                <button type="submit" class="upload-button">Upload</button> <!-- 新增的提交按钮 -->
+            </form>
         </div>
         <div class="middle-section">
             <div class="arrow">
@@ -31,5 +36,42 @@
             <button class="download-button">download</button>
         </div>
     </div>
+    <script>
+        document.getElementById('image-input').addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onloadend = function() {
+                    document.getElementById('input-image').src = reader.result;
+                    document.getElementById('input-image').style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        document.getElementById('upload-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            const csrfToken = document.querySelector('meta[name=csrf-token]').content;
+
+            fetch(this.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'X-CSRFToken': csrfToken
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.uploaded_file_url) {
+                    document.getElementById('input-image').src = data.uploaded_file_url;
+                    document.getElementById('input-image').style.display = 'block';
+                } else {
+                    alert('Error uploading file');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
 </body>
 </html>

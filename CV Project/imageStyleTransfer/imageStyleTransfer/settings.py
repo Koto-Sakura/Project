@@ -111,7 +111,12 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'ImageST/static'),
 ]
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'ImageST/media')
 
+# 确保media目录存在
+os.makedirs(os.path.join(MEDIA_ROOT, 'imgs'), exist_ok=True)
+os.makedirs(os.path.join(MEDIA_ROOT, 'output'), exist_ok=True)
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 

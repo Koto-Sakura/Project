@@ -3,6 +3,7 @@
 <html>
     <head>
         <title>Image Style Transfer</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <link rel="stylesheet" type="text/css" href="../static/css/index.css">
     </head>
     <body>
@@ -11,7 +12,7 @@
         </div>
         <div class="container">
             <img src="../static/imgs/background_img.jpg" alt="Background Image" class="background-img">
-            <form method="post" enctype="multipart/form-data" class="upload-form">
+            <form method="get" action="{% url 'transfer' %}" enctype="multipart/form-data" class="upload-form">
                 <input type="submit" value="Submit" class="upload-button">
             </form>
         </div>
