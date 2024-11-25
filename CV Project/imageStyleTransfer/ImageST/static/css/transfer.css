@@ -1,8 +1,9 @@
+/* transfer.css */
 body {
-    background-color: rgb(255, 255, 255);
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -11,7 +12,7 @@ body {
 }
 
 .navbar {
-    background-color: black;
+    background-color: #333;
     color: white;
     padding: 10px;
     text-align: center;
@@ -20,42 +21,41 @@ body {
     z-index: 1000;
     top: 0;
     left: 0;
+    transition: all 0.3s ease;
 }
 
-.navbar h1 {
-    margin: 0;
+.navbar:hover {
+    background-color: #555;
 }
 
 .main-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
     max-width: 1200px;
-    margin-top: 60px; /* 留出导航栏的高度 */
+    margin-top: 60px; /* 顶部距离 */
     padding: 20px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .left-section, .middle-section, .right-section {
     flex: 1;
     text-align: center;
-}
-
-.left-section label, .left-section input {
-    display: block;
-    margin-bottom: 10px;
+    padding: 20px; /* 内边距 */
+    width: 100%; /* 使每个部分占据整个宽度 */
 }
 
 .input-image-container, .output-image-container {
-    width: 200px; /* 正方形宽度 */
-    height: 200px; /* 正方形高度 */
-    border: 2px dashed #ccc; /* 边框样式 */
+    border: 2px dashed #ccc;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    position: relative; /* 使+号相对于此容器定位 */
+    position: relative;
+    margin: 20px 0; /* 上下边距 */
+    padding: 20px; /* 内边距 */
+    min-width: 300px; /* 最小宽度 */
+    min-height: 300px; /* 最小高度 */
 }
 
 .input-image-container img, .output-image-container img {
@@ -63,23 +63,23 @@ body {
     max-height: 100%;
 }
 
+/* transfer.css */
 .middle-section .arrow {
     margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; /* 使箭头容器高度占满整个中间区域 */
+    width: 100%; /* 使箭头容器宽度占满整个中间区域 */
+    margin-left: 40px;
 }
 
-.start-button, .download-button {
-    background-color: skyblue;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+.middle-section .arrow img {
+    width: 100px; /* 图片宽度 */
+    height: auto; /* 图片高度自适应 */
+}
+
+#upload-prompt {
+    display: block;
     margin-top: 10px;
-}
-
-/* 新增样式：+号 */
-.upload-icon {
-    font-size: 2em;
-    color: #999;
-    cursor: pointer;
 }

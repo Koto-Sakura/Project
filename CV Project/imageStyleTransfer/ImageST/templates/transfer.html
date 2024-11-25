@@ -1,77 +1,59 @@
+<!-- transfer.html -->
 <!DOCTYPE html>
 <html>
 <head>
+    <meta name="csrf-token" content="{% csrf_token %}">
     <title>Image Style Transfer</title>
     <link rel="stylesheet" type="text/css" href="../static/css/transfer.css">
-    <meta name="csrf-token" content="{% csrf_token %}">
+    <link href="../static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-    <div class="navbar">
-        <h1>ImageStyleTransfer</h1>
+    <div class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">ImageStyleTransfer</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contact</a>
+                </li>
+            </ul>
+        </div>
     </div>
-    <div class="main-container">
-        <div class="left-section">
-            <form id="upload-form" enctype="multipart/form-data" method="post" action="{% url 'save' %}">
-                {% csrf_token %}
-                <div class="input-image-container">
-                    <img src="{{ uploaded_file_url }}" alt="Input Image" id="input-image">
-                    <span class="upload-icon" onclick="document.getElementById('image-input').click()">+</span>
+    <div class="main-container container mt-5">
+        <div class="row">
+            <div class="col-md-4 left-section">
+                <form id="upload-form" enctype="multipart/form-data" method="post" action="{% url 'save' %}">
+                    {% csrf_token %}
+                    <div class="input-image-container d-flex justify-content-center align-items-center" onclick="document.getElementById('image-input').click()">
+                        <img src="{{ uploaded_file_url }}" alt="Input Image" id="input-image" style="display: none;">
+                        <p id="upload-prompt" class="text-secondary">点击此处上传</p>
+                    </div>
+                    <input type="file" id="image-input" name="image-input" accept="image/jpeg, image/png, image/jpg" style="display: none;">
+                    <button type="submit" class="btn btn-primary upload-button">Upload and Process</button>
+                </form>
+            </div>
+            <div class="col-md-4 middle-section">
+                <div class="arrow text-center">
+                    <img src="../static/imgs/start.png" alt="Start Image" />
                 </div>
-                <input type="file" id="image-input" name="image-input" accept="image/jpeg, image/png, image/jpg" style="display: none;">
-                <button type="submit" class="upload-button">Upload</button> <!-- 新增的提交按钮 -->
-            </form>
-        </div>
-        <div class="middle-section">
-            <div class="arrow">
-                <svg width="50" height="50" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M7 12L12 17L17 12" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
             </div>
-            <button class="start-button">begin</button>
-        </div>
-        <div class="right-section">
-            <div class="output-image-container">
-                <img src="" alt="Output Image" id="output-image" style="display: none;">
+            <div class="col-md-4 right-section">
+                <div class="output-image-container">
+                    <img src="" alt="Output Image" id="output-image" style="display: none;">
+                </div>
+                <button class="btn btn-secondary download-button">Download</button>
             </div>
-            <button class="download-button">download</button>
         </div>
     </div>
-    <script>
-        document.getElementById('image-input').addEventListener('change', function(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onloadend = function() {
-                    document.getElementById('input-image').src = reader.result;
-                    document.getElementById('input-image').style.display = 'block';
-                };
-                reader.readAsDataURL(file);
-            }
-        });
-
-        document.getElementById('upload-form').addEventListener('submit', function(event) {
-            event.preventDefault();
-            const formData = new FormData(this);
-            const csrfToken = document.querySelector('meta[name=csrf-token]').content;
-
-            fetch(this.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'X-CSRFToken': csrfToken
-                }
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.uploaded_file_url) {
-                    document.getElementById('input-image').src = data.uploaded_file_url;
-                    document.getElementById('input-image').style.display = 'block';
-                } else {
-                    alert('Error uploading file');
-                }
-            })
-            .catch(error => console.error('Error:', error));
-        });
-    </script>
+    <script src="../static/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../static/js/transfer.js"></script>
 </body>
 </html>
