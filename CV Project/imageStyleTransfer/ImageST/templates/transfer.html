@@ -32,9 +32,18 @@
             <div class="col-md-4 left-section">
                 <form id="upload-form" enctype="multipart/form-data" method="post" action="{% url 'save' %}">
                     {% csrf_token %}
+                    
                     <div class="input-image-container d-flex justify-content-center align-items-center" onclick="document.getElementById('image-input').click()">
                         <img src="{{ uploaded_file_url }}" alt="Input Image" id="input-image" style="display: none;">
                         <p id="upload-prompt" class="text-secondary">点击此处上传</p>
+                    </div>
+                    <div class="form-group">
+                        <label for="style-select">选择风格迁移类型:</label>
+                        <select class="form-control" id="style-select" name="style-select">
+                            <option value="retro">怀旧风</option>
+                            <option value="pixel">像素风</option>
+                            <option value="sketch">素描风</option>
+                        </select>
                     </div>
                     <input type="file" id="image-input" name="image-input" accept="image/jpeg, image/png, image/jpg" style="display: none;">
                     <button type="submit" class="btn btn-primary upload-button">Upload and Process</button>
