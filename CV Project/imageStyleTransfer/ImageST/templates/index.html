@@ -19,10 +19,7 @@
                     <a class="nav-link" href="{% url 'index' %}">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="{% url 'transfer' %}">StyleTransfer</a>
                 </li>
             </ul>
         </div>
@@ -34,7 +31,7 @@
             </div>
             <div class="col-md-12 text-center mt-4">
                 <form method="get" action="{% url 'transfer' %}" enctype="multipart/form-data" class="upload-form">
-                    <button type="submit" class="btn btn-primary btn-lg upload-button">Submit</button>
+                    <button type="submit" class="btn btn-primary btn-lg upload-button">Start</button>
                 </form>
             </div>
         </div>

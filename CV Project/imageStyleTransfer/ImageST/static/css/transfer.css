@@ -1,6 +1,6 @@
 /* transfer.css */
 body {
-    background-color: #f4f4f4;
+    background-color:  #a199484f !important;
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
@@ -12,9 +12,9 @@ body {
 }
 
 .navbar {
-    background-color: #333;
+    background-color: #8b8989;
     color: white;
-    padding: 10px;
+    padding: 20px;
     text-align: center;
     position: fixed;
     width: 100%;
@@ -29,57 +29,94 @@ body {
 }
 
 .main-container {
-    max-width: 1200px;
-    margin-top: 60px; /* 顶部距离 */
-    padding: 20px;
+    max-width: 100%;
+    margin-top: 60px; /* 调整顶部间距 */
+    padding: 10px;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.left-section, .middle-section, .right-section {
+.left-section, .right-section {
     flex: 1;
     text-align: center;
-    padding: 20px; /* 内边距 */
-    width: 100%; /* 使每个部分占据整个宽度 */
+    padding: 10px; 
+    width: 50hv; 
 }
 
 .input-image-container, .output-image-container {
-    border: 2px dashed #ccc;
+    border: 2px dashed #928e8e;
     display: flex;
     justify-content: center;
     align-items: center;
     overflow: hidden;
     position: relative;
-    margin: 20px 0; /* 上下边距 */
-    padding: 20px; /* 内边距 */
-    min-width: 300px; /* 最小宽度 */
-    min-height: 300px; /* 最小高度 */
+    margin: 10px 0;
+    padding: 30px;
+    width: 640px; /* 固定宽度 */
+    height: 460px; /* 固定高度 */
+}
+.input-image-container{
+    margin-right: 30px;
+}
+.output-image-container{
+    margin-left: 30px;
 }
 
-.input-image-container img, .output-image-container img {
-    max-width: 100%;
-    max-height: 100%;
+.output-image-container img {
+    cursor: pointer; /* 允许点击放大 */
 }
 
-/* transfer.css */
-.middle-section .arrow {
-    margin-bottom: 20px;
-    display: flex;
+.download-button {
+    margin-top: 20px; 
+}
+.loading-spinner {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    display: block;
+    z-index: 1001;
+}
+.mask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* 半透明黑色背景 */
+    display: none;
     justify-content: center;
     align-items: center;
-    height: 100%; /* 使箭头容器高度占满整个中间区域 */
-    width: 100%; /* 使箭头容器宽度占满整个中间区域 */
-    margin-left: 40px;
+    z-index: 1000;
 }
 
-.middle-section .arrow img {
-    width: 100px; /* 图片宽度 */
-    height: auto; /* 图片高度自适应 */
+.style-selection {
+    background-color: #dbd9c54f; 
+    border: 1px solid #a39c9c;
+    border-radius: 8px;
+    padding: 20px; 
+    margin-bottom: 20px; 
+    margin-bottom: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
-#upload-prompt {
+.style-selection label {
     display: block;
-    margin-top: 10px;
+    margin-bottom: 10px; 
+    font-size: 16px; 
+    color: #333;
+}
+
+.style-selection input[type="radio"] {
+    margin-right: 5px; 
+    accent-color: #597a99; 
+}
+
+.radio-group {
+    display: flex;
+    flex-direction: column; 
+    gap: 10px; 
 }
